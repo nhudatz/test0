@@ -44,7 +44,7 @@ plt20 = sns.boxplot(data['touch_screen'], ax = axs[19])
 plt21 = sns.boxplot(data['wifi'], ax = axs[20])
 plt22 = sns.boxplot(data['price_range'], ax = axs[21])
 
-st.write(plt.tight_layout())
+st.pyplot(plt.tight_layout())
 
 
 
