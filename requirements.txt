@@ -5,6 +5,3 @@ sklearn
 numpy
 matplotlib
 seaborn
-folium
-plotly.express
-scipy
