@@ -14,5 +14,5 @@ if st.checkbox('Show Dataframe'):
   st.write('This is a column.')
   st.write (data.columns)
 
-st.write('This is a line_chart.')
-st.line_chart(data.price_range)
+st.write('This is a chart.')
+st.plotly_chart(data.price_range)
