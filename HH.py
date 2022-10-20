@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+from sklearn.metrics import confusion_matrix, classification_report
 
 st.header("Mobile Prediction project")
 
@@ -115,18 +116,6 @@ y=dcopy[['price_range']]
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=101)
 
 
-#from sklearn.tree import DecisionTreeClassifier
-#dtree = DecisionTreeClassifier()
-#dtree.fit(X_train,y_train)
-#st.write('dtree score is:')
-#st.write (dtree.score(X_test,y_test))
-
-
-#y = data_modelling['price_range']
-#X1 = data_modelling.drop('price_range', axis = 1)
-#X2 = pd.get_dummies(data_modelling)
-#X_train1, X_test1, y_train1, y_test1 = train_test_split(X1,y,random_state=42,test_size=0.2)
-#X_train2, X_test2, y_train2, y_test2 = train_test_split(X2,y,random_state=42,test_size=0.2)
 
 
 
@@ -134,38 +123,13 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=10
 # Train the model
 #from sklearn.linear_model import LogisticRegression
 
-from sklearn.metrics import confusion_matrix, classification_report
 
-# Logistic Regression
-#st.subheader("Logistic Regression Results")
-# without reduction
-#logregwithoutpca = LogisticRegression()
-#logregwithoutpca.fit(X_train, y_train)
 
-#logregwithoutpca_result = logregwithoutpca.predict(X_test)#After training-need to perdict
-
-#st.write('Accuracy of Logistic Regression (without PCA) on training set: {:.2f}'
- #    .format(logregwithoutpca.score(X_train, y_train)))
-#st.write('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
- #    .format(logregwithoutpca.score(X_test, y_test)))
-#st.write('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
-#print('\n\nClassification report :\n\n', classification_report(y_test, logregwithoutpca_result))
-
-#print
 
 #ConfusionMatrix 
 
-#st.write("Visualization Confusion Matrix")
 confusion_matrix = confusion_matrix(y_test, logregwithoutpca_result)
-#sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
-#plt.title('Confusion Matrix for KNN')
-#plt.xlabel('Predicted')
-#plt.ylabel('True')
-#st.write(classification_report(y_test, logregwithoutpca_result))
 
-#fig, ax = plt.subplots()
-#sns.heatmap(confusion_matrix, ax=ax)
-#st.pyplot(fig)
 
 
 st.write("ConfusionMatrix In Percentage")
