@@ -16,5 +16,7 @@ if st.checkbox('Show Dataframe'):
 
 st.write('This is a pie chart.')
 
-pie_chart = px.pie(data.price_range)
+
+import plotly.express as px
+pie_chart = px.pie(data,"price_range")
 st.plotly_chart(pie_chart)
