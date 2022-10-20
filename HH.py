@@ -162,7 +162,7 @@ st.pyplot(fig)
 
 
 st.subheader("Support Vector Machine (SVM) results")
-    model = SVC(C=C, kernel=kernel, gamma=gamma)
+    model = SVC#(C=C, kernel=kernel, gamma=gamma)
     model.fit(x_train, y_train)
     accuracy = model.score(x_test, y_test)
     y_pred = model.predict(x_test)
