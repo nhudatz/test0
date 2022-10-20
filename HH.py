@@ -44,3 +44,37 @@ sns.heatmap(matrix, vmax=1, square=True, annot=True,cmap='Paired')
 fig, ax = plt.subplots()
 sns.heatmap(matrix, ax=ax)
 st.pyplot(fig)
+
+
+
+X=dcopy.drop(['price_range'],axis=1)
+y=dcopy[['price_range']]
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=0)
+
+
+from sklearn.tree import DecisionTreeClassifier
+dtree = DecisionTreeClassifier()
+dtree.fit(X_train,y_train)
+st.write (dtree.score(X_test,y_test))
+
+
+acc_score=accuracy_score(y_test,y_pred)
+st.write('The Accuracy of Model is : ',acc_score)
+recall=recall_score(y_test,y_pred,average='weighted')
+st.write('The Recall Score of Model is : ',recall)
+fscore=f1_score(y_test,y_pred,average='weighted')
+st.write('The F-Score of Model is : ',fscore)
+
+
+
+#fig, ax = plt.subplots()
+
+#plt.figure(figsize=(10,5))
+#sns.heatmap(confusion_matrix(y_test,y_pred),annot=True,annot_kws={'size':10},fmt='d')
+#plt.xlabel('Predicted Values',fontsize=14)
+#plt.ylabel('Actual Values',fontsize=14)
+#plt.title('Confusion Matrix with Acccuracy {}'.format(acc_score),fontsize=16)
+#plt.show()
+
+#st.write(fig)
