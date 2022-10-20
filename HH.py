@@ -118,20 +118,6 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=10
 
 
 
-
-
-# Train the model
-#from sklearn.linear_model import LogisticRegression
-
-
-
-
-#ConfusionMatrix 
-
-confusion_matrix = confusion_matrix(y_test, logregwithoutpca_result)
-
-
-
 st.write("ConfusionMatrix In Percentage")
 sns.heatmap(confusion_matrix/np.sum(confusion_matrix), annot=True, 
             fmt='.1%', cmap='Accent')
