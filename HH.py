@@ -11,8 +11,8 @@ data = pd.read_csv(r'train.csv',)
 if st.checkbox('Show Dataframe'):
   st.write(data)
   
-  st.write (data.isna().sum())
+  st.write('This is a column.')
   st.write (data.columns)
 
 st.write('This is a line_chart.')
-st.line_chart(data,'price_range')
+st.line_chart(data)
