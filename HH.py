@@ -61,6 +61,13 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
 
+useless_col = ['battery_power', 'blue', 'clock_speed', 'dual_sim', 'fc', 'four_g',
+       'int_memory', 'm_dep', 'mobile_wt', 'n_cores', 'pc', 'px_height',
+       'px_width', 'ram', 'sc_h', 'sc_w', 'talk_time', 'three_g',
+       'touch_screen', 'wifi']
+
+data_modelling = dcopy_new.drop(useless_col, axis = 1)
+
 y = data_modelling['price_range']
 X1 = data_modelling.drop('price_range', axis = 1)
 X2 = pd.get_dummies(data_modelling)
