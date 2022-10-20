@@ -30,5 +30,5 @@ f, ax = plt.subplots(figsize=(20, 15))
 sns.heatmap(matrix, vmax=1, square=True, annot=True,cmap='Paired')
 
 fig, ax = plt.subplots()
-sns.heatmap(df_col.corr(), ax=ax)
+sns.heatmap(matrix, ax=ax)
 st.write(fig)
