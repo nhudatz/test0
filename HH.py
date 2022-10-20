@@ -15,4 +15,4 @@ if st.checkbox('Show Dataframe'):
   st.write (data.columns)
 
 st.write('This is a chart.')
-st.plotly_chart(data.price_range)
+st.bar_chart(data.price_range)
