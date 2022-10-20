@@ -50,7 +50,8 @@ if st.checkbox("Show Correlation Plot"):
             fig, ax = plt.subplots(figsize=(10,10))
             st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.7))
             st.pyplot()
-
+          
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 
