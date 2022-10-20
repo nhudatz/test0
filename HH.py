@@ -134,11 +134,6 @@ plt.title('Confusion Matrix for KNN ')
 
 
 
-
-
-
-
-
 plt.clf()
 plt.imshow(confusion_matrix, interpolation='nearest', cmap=plt.cm.Pastel2)
 
@@ -153,4 +148,4 @@ s = [['TN','FP','TP','TP'], ['TN','FP','TP','TP'],['TN','FP','TP','TP'],['TN','F
 for i in range(4):
     for j in range(4):
         plt.text(j,i, str(s[i][j])+" = "+str(confusion_matrix[i][j]))
-plt.show()
+plt.show() '''
