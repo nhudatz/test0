@@ -49,6 +49,10 @@ if st.checkbox("Show Correlation Plot"):
             st.write("### Heatmap")
             fig, ax = plt.subplots(figsize=(30,15))
             st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.7,cmap='Set3'))# Train the model
+            st.pyplot()
+        
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        
 from sklearn.linear_model import LogisticRegression
 
 from sklearn.metrics import confusion_matrix, classification_report
@@ -79,13 +83,7 @@ plt.title('Confusion Matrix for KNN')
 plt.xlabel('Predicted')
 plt.ylabel('True')
 print(classification_report(y_test, logregwithoutpca_result))
-
-
-
-            st.pyplot()
-          
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
+st.pyplot()
 
 
 X=dcopy.drop(['price_range'],axis=1)
