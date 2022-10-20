@@ -107,19 +107,21 @@ sns.heatmap(confusion_matrix, ax=ax)
 st.pyplot(fig)
 
 
-'''print("ConfusionMatrix In Percentage")
+st.write("ConfusionMatrix In Percentage")
 sns.heatmap(confusion_matrix/np.sum(confusion_matrix), annot=True, 
             fmt='.1%', cmap='Accent')
 plt.title('Confusion Matrix for KNN In Percentage')
 plt.xlabel('Predicted Value')
 plt.ylabel('True')
 
+fig, ax = plt.subplots()
+sns.heatmap(confusion_matrix, ax=ax)
+st.pyplot(fig)
 
 
 
 
-
-group_counts = ["{0:0.0f}".format(value) for value in
+'''group_counts = ["{0:0.0f}".format(value) for value in
                 confusion_matrix.flatten()]
 group_percentages = ["{0:.1%}".format(value) for value in
                      confusion_matrix.flatten()/np.sum(confusion_matrix)]
