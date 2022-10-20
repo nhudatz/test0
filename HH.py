@@ -155,17 +155,17 @@ from sklearn.metrics import confusion_matrix, classification_report
 
 #ConfusionMatrix 
 
-st.write("Visualization Confusion Matrix")
-confusion_matrix = confusion_matrix(y_test, logregwithoutpca_result)
-sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
-plt.title('Confusion Matrix for KNN')
-plt.xlabel('Predicted')
-plt.ylabel('True')
-st.write(classification_report(y_test, logregwithoutpca_result))
+#st.write("Visualization Confusion Matrix")
+#confusion_matrix = confusion_matrix(y_test, logregwithoutpca_result)
+#sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
+#plt.title('Confusion Matrix for KNN')
+#plt.xlabel('Predicted')
+#plt.ylabel('True')
+#st.write(classification_report(y_test, logregwithoutpca_result))
 
-fig, ax = plt.subplots()
-sns.heatmap(confusion_matrix, ax=ax)
-st.pyplot(fig)
+#fig, ax = plt.subplots()
+#sns.heatmap(confusion_matrix, ax=ax)
+#st.pyplot(fig)
 
 
 st.write("ConfusionMatrix In Percentage")
