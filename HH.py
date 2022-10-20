@@ -37,13 +37,19 @@ dcopy_new=dcopy
 
 dcopy_new[['clock_speed', 'm_dep','fc','px_height']] = dcopy[['clock_speed', 'm_dep','fc','px_height']].astype('int64') 
 
-matrix = dcopy.corr()
-f, ax = plt.subplots(figsize=(20, 15))
-sns.heatmap(matrix, vmax=1, square=True, annot=True,cmap='Paired')
+#matrix = dcopy.corr()
+#f, ax = plt.subplots(figsize=(20, 15))
+#sns.heatmap(matrix, vmax=1, square=True, annot=True,cmap='Paired')
 
-fig, ax = plt.subplots()
-sns.heatmap(matrix, ax=ax)
-st.pyplot(fig)
+#fig, ax = plt.subplots()
+#sns.heatmap(matrix, ax=ax)
+#st.pyplot(fig)
+
+if st.checkbox("Show Correlation Plot"):
+            st.write("### Heatmap")
+            fig, ax = plt.subplots(figsize=(10,10))
+            st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.5))
+            st.pyplot()
 
 
 
