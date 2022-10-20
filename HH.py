@@ -90,22 +90,24 @@ st.write('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
 st.write('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
 #print('\n\nClassification report :\n\n', classification_report(y_test, logregwithoutpca_result))
 
-'''print
+#print
 
 #ConfusionMatrix 
 
-print("Visualization Confusion Matrix")
+st.write("Visualization Confusion Matrix")
 confusion_matrix =confusion_matrix(y_test, logregwithoutpca_result)
 sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
 plt.title('Confusion Matrix for KNN')
 plt.xlabel('Predicted')
 plt.ylabel('True')
-print(classification_report(y_test, logregwithoutpca_result))
+st.write(classification_report(y_test, logregwithoutpca_result))
+
+fig, ax = plt.subplots()
+sns.heatmap(confusion_matrix, ax=ax)
+st.pyplot(fig)
 
 
-
-
-print("ConfusionMatrix In Percentage")
+'''print("ConfusionMatrix In Percentage")
 sns.heatmap(confusion_matrix/np.sum(confusion_matrix), annot=True, 
             fmt='.1%', cmap='Accent')
 plt.title('Confusion Matrix for KNN In Percentage')
