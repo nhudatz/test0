@@ -132,23 +132,23 @@ st.write (dtree.score(X_test,y_test))
 
 
 # Train the model
-from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import LogisticRegression
 
-from sklearn.metrics import confusion_matrix, classification_report
+#from sklearn.metrics import confusion_matrix, classification_report
 
 # Logistic Regression
-st.subheader("Logistic Regression Results")
+#st.subheader("Logistic Regression Results")
 # without reduction
-logregwithoutpca = LogisticRegression()
-logregwithoutpca.fit(X_train, y_train)
+#logregwithoutpca = LogisticRegression()
+#logregwithoutpca.fit(X_train, y_train)
 
-logregwithoutpca_result = logregwithoutpca.predict(X_test)#After training-need to perdict
+#logregwithoutpca_result = logregwithoutpca.predict(X_test)#After training-need to perdict
 
-st.write('Accuracy of Logistic Regression (without PCA) on training set: {:.2f}'
-     .format(logregwithoutpca.score(X_train, y_train)))
-st.write('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
-     .format(logregwithoutpca.score(X_test, y_test)))
-st.write('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
+#st.write('Accuracy of Logistic Regression (without PCA) on training set: {:.2f}'
+ #    .format(logregwithoutpca.score(X_train, y_train)))
+#st.write('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
+ #    .format(logregwithoutpca.score(X_test, y_test)))
+#st.write('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
 #print('\n\nClassification report :\n\n', classification_report(y_test, logregwithoutpca_result))
 
 #print
