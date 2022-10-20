@@ -15,4 +15,4 @@ if st.checkbox('Show Dataframe'):
   st.write (data.columns)
 
 st.write('This is a line_chart.')
-st.line_chart(data."price_range")
+st.line_chart(data.'price_range')
