@@ -43,4 +43,4 @@ sns.heatmap(matrix, vmax=1, square=True, annot=True,cmap='Paired')
 
 fig, ax = plt.subplots()
 sns.heatmap(matrix, ax=ax)
-st.write(fig)
+st.pyplot(fig)
