@@ -47,34 +47,110 @@ st.pyplot(fig)
 
 
 
+
 X=dcopy.drop(['price_range'],axis=1)
 y=dcopy[['price_range']]
 
-X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=0)
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=101)
 
 
 from sklearn.tree import DecisionTreeClassifier
 dtree = DecisionTreeClassifier()
 dtree.fit(X_train,y_train)
+st.write('dtree score is:')
 st.write (dtree.score(X_test,y_test))
 
 
-#acc_score=accuracy_score(y_test,y_pred)
-#st.write('The Accuracy of Model is : ',acc_score)
-recall=recall_score(y_test,y_pred,average='weighted')
-st.write('The Recall Score of Model is : ',recall)
-fscore=f1_score(y_test,y_pred,average='weighted')
-st.write('The F-Score of Model is : ',fscore)
+y = data_modelling['price_range']
+X1 = data_modelling.drop('price_range', axis = 1)
+X2 = pd.get_dummies(data_modelling)
+X_train1, X_test1, y_train1, y_test1 = train_test_split(X1,y,random_state=42,test_size=0.2)
+X_train2, X_test2, y_train2, y_test2 = train_test_split(X2,y,random_state=42,test_size=0.2)
 
 
 
-#fig, ax = plt.subplots()
 
-#plt.figure(figsize=(10,5))
-#sns.heatmap(confusion_matrix(y_test,y_pred),annot=True,annot_kws={'size':10},fmt='d')
-#plt.xlabel('Predicted Values',fontsize=14)
-#plt.ylabel('Actual Values',fontsize=14)
-#plt.title('Confusion Matrix with Acccuracy {}'.format(acc_score),fontsize=16)
-#plt.show()
+# Train the model
+from sklearn.linear_model import LogisticRegression
 
-#st.write(fig)
+from sklearn.metrics import confusion_matrix, classification_report
+
+# Logistic Regression
+
+# without reduction
+logregwithoutpca = LogisticRegression()
+logregwithoutpca.fit(X_train, y_train)
+
+logregwithoutpca_result = logregwithoutpca.predict(X_test)#After training-need to perdict
+
+st.write('Accuracy of Logistic Regression (without PCA) on training set: {:.2f}'
+     .format(logregwithoutpca.score(X_train, y_train)))
+st.write('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
+     .format(logregwithoutpca.score(X_test, y_test)))
+st.write('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
+#print('\n\nClassification report :\n\n', classification_report(y_test, logregwithoutpca_result))
+
+'''print
+
+#ConfusionMatrix 
+
+print("Visualization Confusion Matrix")
+confusion_matrix =confusion_matrix(y_test, logregwithoutpca_result)
+sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
+plt.title('Confusion Matrix for KNN')
+plt.xlabel('Predicted')
+plt.ylabel('True')
+print(classification_report(y_test, logregwithoutpca_result))
+
+
+
+
+print("ConfusionMatrix In Percentage")
+sns.heatmap(confusion_matrix/np.sum(confusion_matrix), annot=True, 
+            fmt='.1%', cmap='Accent')
+plt.title('Confusion Matrix for KNN In Percentage')
+plt.xlabel('Predicted Value')
+plt.ylabel('True')
+
+
+
+
+
+
+group_counts = ["{0:0.0f}".format(value) for value in
+                confusion_matrix.flatten()]
+group_percentages = ["{0:.1%}".format(value) for value in
+                     confusion_matrix.flatten()/np.sum(confusion_matrix)]
+
+labels = [f"{v2}\n{v3}" for v2, v3 in
+          zip(group_counts,group_percentages)]
+labels = np.asarray(labels).reshape(4,4)
+sns.heatmap(confusion_matrix, annot=labels, fmt='', cmap='Pastel1')
+
+plt.title('Confusion Matrix for KNN ')
+
+
+
+
+
+
+
+
+
+
+
+plt.clf()
+plt.imshow(confusion_matrix, interpolation='nearest', cmap=plt.cm.Pastel2)
+
+classNames = ['Negative','Positive','Positive','Positive']
+plt.title('Mobile Phone Perdiction Confusion Matrix')
+plt.ylabel('True label')
+plt.xlabel('Predicted ')
+tick_marks = np.arange(len(classNames))
+plt.xticks(tick_marks, classNames, rotation=45)
+plt.yticks(tick_marks, classNames)
+s = [['TN','FP','TP','TP'], ['TN','FP','TP','TP'],['TN','FP','TP','TP'],['TN','FP','TP','TP']]
+for i in range(4):
+    for j in range(4):
+        plt.text(j,i, str(s[i][j])+" = "+str(confusion_matrix[i][j]))
+plt.show()
