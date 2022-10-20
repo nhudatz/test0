@@ -33,9 +33,9 @@ from sklearn.metrics import accuracy_score
 
 dcopy=data.copy()
 
-dcopy_new[['clock_speed', 'm_dep','fc','px_height']] = dcopy[['clock_speed', 'm_dep','fc','px_height']].astype('int64') 
-
 dcopy_new=dcopy
+
+dcopy_new[['clock_speed', 'm_dep','fc','px_height']] = dcopy[['clock_speed', 'm_dep','fc','px_height']].astype('int64') 
 
 matrix = dcopy.corr()
 f, ax = plt.subplots(figsize=(20, 15))
