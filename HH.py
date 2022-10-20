@@ -168,10 +168,15 @@ st.pyplot(fig)
 
 
 st.subheader("Logistic Regression Results")
-model = LogisticRegression(C=C, max_iter=max_iter)
-model.fit(x_train, y_train)
-accuracy = model.score(x_test, y_test)
-y_pred = model.predict(x_test)
+
+logregwithoutpca = LogisticRegression()
+logregwithoutpca.fit(X_train, y_train)
+
+logregwithoutpca_result = logregwithoutpca.predict(X_test)#After training-need to perdict
+#model = LogisticRegression(C=C, max_iter=max_iter)
+#model.fit(x_train, y_train)
+accuracy = logregwithoutpca.score(x_test, y_test)
+#y_pred = model.predict(x_test)
         
 st.write("Accuracy: ", accuracy.round(2))
 st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
