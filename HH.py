@@ -156,7 +156,7 @@ st.write (dtree.score(X_test,y_test))
 #ConfusionMatrix 
 
 st.write("Visualization Confusion Matrix")
-confusion_matrix =confusion_matrix(y_test, logregwithoutpca_result)
+confusion_matrix = confusion_matrix(y_test, logregwithoutpca_result)
 sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
 plt.title('Confusion Matrix for KNN')
 plt.xlabel('Predicted')
