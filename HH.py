@@ -48,7 +48,7 @@ dcopy_new[['clock_speed', 'm_dep','fc','px_height']] = dcopy[['clock_speed', 'm_
 if st.checkbox("Show Correlation Plot"):
             st.write("### Heatmap")
             fig, ax = plt.subplots(figsize=(10,10))
-            st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.5))
+            st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.7))
             st.pyplot()
 
 
@@ -165,3 +165,16 @@ plt.show()
 fig, ax = plt.subplots()
 sns.heatmap(confusion_matrix, ax=ax)
 st.pyplot(fig)
+
+
+
+  st.subheader("Logistic Regression Results")
+        model = LogisticRegression(C=C, max_iter=max_iter)
+        model.fit(x_train, y_train)
+        accuracy = model.score(x_test, y_test)
+        y_pred = model.predict(x_test)
+        
+        st.write("Accuracy: ", accuracy.round(2))
+        st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
+        st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2))
+        plot_metrics(metrics)
