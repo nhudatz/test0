@@ -167,8 +167,7 @@ sns.heatmap(confusion_matrix, ax=ax)
 st.pyplot(fig)
 
 
-
-  st.subheader("Logistic Regression Results")
+st.subheader("Logistic Regression Results")
         model = LogisticRegression(C=C, max_iter=max_iter)
         model.fit(x_train, y_train)
         accuracy = model.score(x_test, y_test)
