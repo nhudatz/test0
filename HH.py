@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 
 st.header("Mobile Prediction project")
 
@@ -17,6 +18,5 @@ if st.checkbox('Show Dataframe'):
 st.write('This is a pie chart.')
 
 
-import plotly.express as px
 pie_chart = px.pie(data,"price_range")
 st.plotly_chart(pie_chart)
