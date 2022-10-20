@@ -88,24 +88,24 @@ logregwithoutpca.fit(X_train, y_train)
 
 logregwithoutpca_result = logregwithoutpca.predict(X_test)#After training-need to perdict
 
-print('Accuracy of Logistic Regression (without PCA) on training set: {:.2f}'
+st.write('Accuracy of Logistic Regression (without PCA) on training set: {:.2f}'
      .format(logregwithoutpca.score(X_train, y_train)))
-print('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
+st.write('Accuracy of Logistic Regression (without PCA)  on testing set: {:.2f}'
      .format(logregwithoutpca.score(X_test, y_test)))
-print('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
+st.write('\nConfusion matrix :\n',confusion_matrix(y_test, logregwithoutpca_result))
 #print('\n\nClassification report :\n\n', classification_report(y_test, logregwithoutpca_result))
 
-print
+#print
 
 #ConfusionMatrix 
 
-print("Visualization Confusion Matrix")
+st.write("Visualization Confusion Matrix")
 confusion_matrix =confusion_matrix(y_test, logregwithoutpca_result)
 sns.heatmap(confusion_matrix, annot=True, fmt="d", cmap='Set3')
 plt.title('Confusion Matrix for KNN')
 plt.xlabel('Predicted')
 plt.ylabel('True')
-print(classification_report(y_test, logregwithoutpca_result))
+st.write(classification_report(y_test, logregwithoutpca_result))
 st.pyplot()
 
 
