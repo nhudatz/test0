@@ -134,7 +134,7 @@ st.write (dtree.score(X_test,y_test))
 # Train the model
 #from sklearn.linear_model import LogisticRegression
 
-#from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report
 
 # Logistic Regression
 #st.subheader("Logistic Regression Results")
