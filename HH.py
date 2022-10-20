@@ -25,7 +25,19 @@ st.plotly_chart(pie_chart)
 #ax.box(data['px_height'],bins=20)
 #st.pyplot(fig)
 
-matrix = data.corr()
+st.write('To see correlation')
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+
+dcopy=data.copy()
+
+dcopy_new[['clock_speed', 'm_dep','fc','px_height']] = dcopy[['clock_speed', 'm_dep','fc','px_height']].astype('int64') 
+
+dcopy_new=dcopy
+
+matrix = dcopy.corr()
 f, ax = plt.subplots(figsize=(20, 15))
 sns.heatmap(matrix, vmax=1, square=True, annot=True,cmap='Paired')
 
