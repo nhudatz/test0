@@ -47,7 +47,7 @@ dcopy_new[['clock_speed', 'm_dep','fc','px_height']] = dcopy[['clock_speed', 'm_
 
 if st.checkbox("Show Correlation Plot"):
             st.write("### Heatmap")
-            fig, ax = plt.subplots(figsize=(15,30))
+            fig, ax = plt.subplots(figsize=(30,15))
             st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.7))
             st.pyplot()
           
