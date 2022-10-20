@@ -51,7 +51,7 @@ if st.checkbox("Show Correlation Plot"):
             st.write(sns.heatmap(dcopy.corr(), annot=True,linewidths=0.7,cmap='Set3'))# Train the model
             st.pyplot()
         
- st.set_option('deprecation.showPyplotGlobalUse', False)
+ #st.set_option('deprecation.showPyplotGlobalUse', False)
         
 from sklearn.linear_model import LogisticRegression
 
