@@ -59,8 +59,8 @@ dtree.fit(X_train,y_train)
 st.write (dtree.score(X_test,y_test))
 
 
-acc_score=accuracy_score(y_test,y_pred)
-st.write('The Accuracy of Model is : ',acc_score)
+#acc_score=accuracy_score(y_test,y_pred)
+#st.write('The Accuracy of Model is : ',acc_score)
 recall=recall_score(y_test,y_pred,average='weighted')
 st.write('The Recall Score of Model is : ',recall)
 fscore=f1_score(y_test,y_pred,average='weighted')
