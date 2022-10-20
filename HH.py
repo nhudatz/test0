@@ -14,5 +14,7 @@ if st.checkbox('Show Dataframe'):
   st.write('This is a column.')
   st.write (data.columns)
 
-st.write('This is a chart.')
-st.bar_chart(data.price_range)
+st.write('This is a pie chart.')
+
+pie_chart = px.pie(data,price_range)
+st.plotly_chart(pie_chart)
