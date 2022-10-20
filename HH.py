@@ -154,7 +154,7 @@ s = [['TN','FP','TP','TP'], ['TN','FP','TP','TP'],['TN','FP','TP','TP'],['TN','F
 for i in range(4):
     for j in range(4):
         plt.text(j,i, str(s[i][j])+" = "+str(confusion_matrix[i][j]))
-#plt.show()
+plt.show()
 
 fig, ax = plt.subplots()
 sns.heatmap(confusion_matrix, ax=ax)
