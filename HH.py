@@ -22,6 +22,7 @@ st.plotly_chart(pie_chart)
 
 st.write('This is a outlier for px_height.')
 
-fig = px.box(df, x="px_height", y="price_range",points="all")
-fig.show()
-st.pyplot(fig)
+fig, ax = plt.subplots()
+ax.box(data['px_height'], bins=20)
+
+st.write(fig)
